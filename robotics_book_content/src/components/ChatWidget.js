@@ -3,7 +3,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const ChatWidget = ({ isOpen, toggleChat, selectedText, clearSelectedText }) => {
   const { siteConfig } = useDocusaurusContext();
-  const API_BASE_URL = siteConfig.customFields.backendUrl;
+  // Ensure API_BASE_URL does not have a trailing slash
+  const API_BASE_URL = siteConfig.customFields.backendUrl.replace(/\/+$/, '');
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [conversationId, setConversationId] = useState(null);

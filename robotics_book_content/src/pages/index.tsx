@@ -14,31 +14,31 @@ function Home() {
       title: 'ROS 2', 
       description: 'Robotic Nervous System', 
       longDescription: 'Master the Robot Operating System 2 to build robust and scalable robotic applications. Learn about communication, tools, and best practices for modern robotics development.',
-      icon: '/hackathon-book-project/img/icon-ros2.svg' 
+      icon: '/img/icon-ros2.svg' 
     },
     { 
       title: 'Gazebo & Unity', 
       description: 'Digital Twins', 
       longDescription: 'Explore virtual environments for robotic simulation with Gazebo and Unity. Develop and test complex robotic behaviors in a safe and reproducible setting before deploying to hardware.',
-      icon: '/hackathon-book-project/img/icon-gazebo.svg' 
+      icon: '/img/icon-gazebo.svg' 
     },
     { 
       title: 'NVIDIA Isaac', 
       description: 'AI Perception & Control', 
       longDescription: 'Delve into NVIDIA Isaac Sim for advanced AI-powered perception and control in robotics. Understand how to integrate machine learning models for intelligent decision-making and task execution.',
-      icon: '/hackathon-book-project/img/icon-isaac.svg' 
+      icon: '/img/icon-isaac.svg' 
     },
     { 
       title: 'VLA Systems', 
       description: 'Integrated AI Systems', 
       longDescription: 'Understand the architecture and implementation of Vision-Language-Action (VLA) systems. Learn to build robots that can perceive, reason, and act based on visual and linguistic commands.',
-      icon: '/hackathon-book-project/img/icon-vla.svg' 
+      icon: '/img/icon-vla.svg' 
     },
     { 
       title: 'Humanoid Robotics', 
       description: 'Advanced Embodied Systems', 
       longDescription: 'Dive into the complexities of humanoid robotics, covering topics from locomotion and balance to manipulation and human-robot interaction. Build the next generation of intelligent, human-like machines.',
-      icon: '/hackathon-book-project/img/icon-humanoid.svg' 
+      icon: '/img/icon-humanoid.svg' 
     },
   ];
 
