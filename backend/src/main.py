@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
+import os
 from src.core.config import settings
 from src.api import ingest, history, chat
 
