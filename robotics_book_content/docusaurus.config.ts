@@ -8,9 +8,9 @@ const config: Config = {
   plugins: [
     require.resolve('./plugins/my-webpack-aliases'),
   ],
-  title: 'Physical AI & Humanoid Robotics',
+  title: 'RoboAI',
   tagline: 'From Simulation to Reality',
-  favicon: 'img/book-logo.png',
+  favicon: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',
 
   customFields: {
     backendUrl: process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000',

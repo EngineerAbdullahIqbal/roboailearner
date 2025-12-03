@@ -63,8 +63,8 @@ function Home() {
 
   return (
     <Layout
-      title="Physical AI & Humanoid Robotics"
-      description="A Complete Digital Textbook for Embodied Intelligence & Humanoid Systems"
+      title="RoboAI"
+      description="Learn and build with RoboAI."
       wrapperClassName="homepage-wrapper">
 
       <SplineSceneBasic
