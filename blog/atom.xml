@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://engineerabdullahiqbal.github.io/roboailearner/blog</id>
     <title>Physical AI &amp; Humanoid Robotics Blog</title>
-    <updated>2025-12-03T08:04:24.000Z</updated>
+    <updated>2025-12-03T08:41:52.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://engineerabdullahiqbal.github.io/roboailearner/blog"/>
     <subtitle>Physical AI &amp; Humanoid Robotics Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[Bridging the Gap - Announcing 'Physical AI & Humanoid Robotics']]></title>
         <id>https://engineerabdullahiqbal.github.io/roboailearner/blog/introducing-physical-ai-humanoid-robotics-book</id>
         <link href="https://engineerabdullahiqbal.github.io/roboailearner/blog/introducing-physical-ai-humanoid-robotics-book"/>
-        <updated>2025-12-03T08:04:24.000Z</updated>
+        <updated>2025-12-03T08:41:52.000Z</updated>
         <summary type="html"><![CDATA["Physical AI & Humanoid Robotics" delves into how software commands manifest as physical actions in robots. We emphasize that precision in code directly translates to safety, and clarity is paramount for system reliability.]]></summary>
         <content type="html"><![CDATA[<p>"Physical AI &amp; Humanoid Robotics" delves into how software commands manifest as physical actions in robots. We emphasize that precision in code directly translates to safety, and clarity is paramount for system reliability.</p>
 <p>Our mantra: "Code moves atoms. Precision is safety. Clarity is survival."</p>
