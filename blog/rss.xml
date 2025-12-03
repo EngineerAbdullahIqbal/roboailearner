@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Physical AI &amp; Humanoid Robotics Blog</title>
-        <link>https://engineerabdullahiqbal.github.io/hackathon-book-project/blog</link>
+        <link>https://engineerabdullahiqbal.github.io/roboailearner/blog</link>
         <description>Physical AI &amp; Humanoid Robotics Blog</description>
-        <lastBuildDate>Wed, 03 Dec 2025 06:50:30 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 03 Dec 2025 07:03:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
             <title><![CDATA[Bridging the Gap - Announcing 'Physical AI & Humanoid Robotics']]></title>
-            <link>https://engineerabdullahiqbal.github.io/hackathon-book-project/blog/introducing-physical-ai-humanoid-robotics-book</link>
-            <guid>https://engineerabdullahiqbal.github.io/hackathon-book-project/blog/introducing-physical-ai-humanoid-robotics-book</guid>
-            <pubDate>Wed, 03 Dec 2025 06:50:30 GMT</pubDate>
+            <link>https://engineerabdullahiqbal.github.io/roboailearner/blog/introducing-physical-ai-humanoid-robotics-book</link>
+            <guid>https://engineerabdullahiqbal.github.io/roboailearner/blog/introducing-physical-ai-humanoid-robotics-book</guid>
+            <pubDate>Wed, 03 Dec 2025 07:03:43 GMT</pubDate>
             <description><![CDATA["Physical AI & Humanoid Robotics" delves into how software commands manifest as physical actions in robots. We emphasize that precision in code directly translates to safety, and clarity is paramount for system reliability.]]></description>
             <content:encoded><![CDATA[<p>"Physical AI &amp; Humanoid Robotics" delves into how software commands manifest as physical actions in robots. We emphasize that precision in code directly translates to safety, and clarity is paramount for system reliability.</p>
 <p>Our mantra: "Code moves atoms. Precision is safety. Clarity is survival."</p>
 <hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bridging-the-sim-to-real-gap">Bridging the 'Sim-to-Real' Gap<a href="https://engineerabdullahiqbal.github.io/hackathon-book-project/blog/introducing-physical-ai-humanoid-robotics-book#bridging-the-sim-to-real-gap" class="hash-link" aria-label="Direct link to Bridging the 'Sim-to-Real' Gap" title="Direct link to Bridging the 'Sim-to-Real' Gap" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bridging-the-sim-to-real-gap">Bridging the 'Sim-to-Real' Gap<a href="https://engineerabdullahiqbal.github.io/roboailearner/blog/introducing-physical-ai-humanoid-robotics-book#bridging-the-sim-to-real-gap" class="hash-link" aria-label="Direct link to Bridging the 'Sim-to-Real' Gap" title="Direct link to Bridging the 'Sim-to-Real' Gap" translate="no">​</a></h3>
 <p>Code that works in simulation (Gazebo, Isaac Sim) often fails on real robots. This book prepares you for real-world imperfections beyond perfect simulation conditions, addressing:</p>
 <ul>
 <li class=""><strong>Sensor Noise</strong>: Managing noisy data.</li>
@@ -27,20 +27,20 @@
 </ul>
 <p><strong>Example</strong>: When running the SLAM node on a real robot, rapid turning causes motion blur on the RealSense camera, leading to tracking loss. Move slowly during mapping for robust localization.</p>
 <hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hardware-constraints--edge-computing">Hardware Constraints &amp; Edge Computing<a href="https://engineerabdullahiqbal.github.io/hackathon-book-project/blog/introducing-physical-ai-humanoid-robotics-book#hardware-constraints--edge-computing" class="hash-link" aria-label="Direct link to Hardware Constraints &amp; Edge Computing" title="Direct link to Hardware Constraints &amp; Edge Computing" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hardware-constraints--edge-computing">Hardware Constraints &amp; Edge Computing<a href="https://engineerabdullahiqbal.github.io/roboailearner/blog/introducing-physical-ai-humanoid-robotics-book#hardware-constraints--edge-computing" class="hash-link" aria-label="Direct link to Hardware Constraints &amp; Edge Computing" title="Direct link to Hardware Constraints &amp; Edge Computing" translate="no">​</a></h3>
 <p>Understanding where your code runs is crucial. The book differentiates between workstation and edge device constraints:</p>
 <ul>
 <li class=""><strong>Workstation (RTX 4090) Target</strong>: Training Large Vision-Language Models (VLAs) or rendering complex simulations. <strong>Constraints</strong>: Managing VRAM and optimizing CUDA cores.</li>
 <li class=""><strong>Edge Device (Jetson Orin Nano / Robot CPU) Target</strong>: Real-time inference, motor control, and SLAM directly on the robot. <strong>Constraints</strong>: Achieving ultra-low latency, optimizing memory, and mitigating Python overhead.</li>
 </ul>
 <hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="safety-admonitions-protecting-hardware-and-humans">Safety Admonitions: Protecting Hardware and Humans<a href="https://engineerabdullahiqbal.github.io/hackathon-book-project/blog/introducing-physical-ai-humanoid-robotics-book#safety-admonitions-protecting-hardware-and-humans" class="hash-link" aria-label="Direct link to Safety Admonitions: Protecting Hardware and Humans" title="Direct link to Safety Admonitions: Protecting Hardware and Humans" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="safety-admonitions-protecting-hardware-and-humans">Safety Admonitions: Protecting Hardware and Humans<a href="https://engineerabdullahiqbal.github.io/roboailearner/blog/introducing-physical-ai-humanoid-robotics-book#safety-admonitions-protecting-hardware-and-humans" class="hash-link" aria-label="Direct link to Safety Admonitions: Protecting Hardware and Humans" title="Direct link to Safety Admonitions: Protecting Hardware and Humans" translate="no">​</a></h3>
 <p>Physical AI involves inherent risks. Our book uses a clear safety framework:</p>
 <div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>Warnings for potential software crashes or confusing errors.</p></div></div>
 <div class="theme-admonition theme-admonition-danger admonition_xJq3 alert alert--danger"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path></svg></span>danger</div><div class="admonitionContent_BuS1"><p>Dangers for potential hardware damage (e.g., burning servos) or physical injury (e.g., a robot falling). These demand highest attention.</p></div></div>
 <p>Every risk is clearly flagged to foster a safety-first mindset.</p>
 <hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="visual-first-architecture">Visual-First Architecture<a href="https://engineerabdullahiqbal.github.io/hackathon-book-project/blog/introducing-physical-ai-humanoid-robotics-book#visual-first-architecture" class="hash-link" aria-label="Direct link to Visual-First Architecture" title="Direct link to Visual-First Architecture" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="visual-first-architecture">Visual-First Architecture<a href="https://engineerabdullahiqbal.github.io/roboailearner/blog/introducing-physical-ai-humanoid-robotics-book#visual-first-architecture" class="hash-link" aria-label="Direct link to Visual-First Architecture" title="Direct link to Visual-First Architecture" translate="no">​</a></h3>
 <p>"Physical AI &amp; Humanoid Robotics" uses a visual-first approach for clarity. If a Node, Topic, or Frame is mentioned, it's visualized:</p>
 <ul>
 <li class="">
@@ -55,7 +55,7 @@
 </li>
 </ul>
 <hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ros-2-humble--python-310-compliance">ROS 2 Humble &amp; Python 3.10 Compliance<a href="https://engineerabdullahiqbal.github.io/hackathon-book-project/blog/introducing-physical-ai-humanoid-robotics-book#ros-2-humble--python-310-compliance" class="hash-link" aria-label="Direct link to ROS 2 Humble &amp; Python 3.10 Compliance" title="Direct link to ROS 2 Humble &amp; Python 3.10 Compliance" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ros-2-humble--python-310-compliance">ROS 2 Humble &amp; Python 3.10 Compliance<a href="https://engineerabdullahiqbal.github.io/roboailearner/blog/introducing-physical-ai-humanoid-robotics-book#ros-2-humble--python-310-compliance" class="hash-link" aria-label="Direct link to ROS 2 Humble &amp; Python 3.10 Compliance" title="Direct link to ROS 2 Humble &amp; Python 3.10 Compliance" translate="no">​</a></h3>
 <p>The book adheres to current industry standards:</p>
 <ul>
 <li class=""><strong>ROS 2 Humble</strong>: All code uses modern <code>rclpy</code> structures.</li>
@@ -64,7 +64,7 @@
 <li class=""><strong>Build System</strong>: Guidance on <code>setup.py</code> entry points for robust package management.</li>
 </ul>
 <hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="docusaurus-feature-utilization-for-enhanced-learning">Docusaurus Feature Utilization for Enhanced Learning<a href="https://engineerabdullahiqbal.github.io/hackathon-book-project/blog/introducing-physical-ai-humanoid-robotics-book#docusaurus-feature-utilization-for-enhanced-learning" class="hash-link" aria-label="Direct link to Docusaurus Feature Utilization for Enhanced Learning" title="Direct link to Docusaurus Feature Utilization for Enhanced Learning" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="docusaurus-feature-utilization-for-enhanced-learning">Docusaurus Feature Utilization for Enhanced Learning<a href="https://engineerabdullahiqbal.github.io/roboailearner/blog/introducing-physical-ai-humanoid-robotics-book#docusaurus-feature-utilization-for-enhanced-learning" class="hash-link" aria-label="Direct link to Docusaurus Feature Utilization for Enhanced Learning" title="Direct link to Docusaurus Feature Utilization for Enhanced Learning" translate="no">​</a></h3>
 <p>We leverage Docusaurus for an interactive learning experience:</p>
 <ul>
 <li class=""><strong>Admonitions</strong>: For crucial warnings and dangers.</li>
@@ -73,7 +73,7 @@
 <li class=""><strong>Code Blocks</strong>: For formatted code examples, including <code>bash</code> commands.</li>
 </ul>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusion-empowering-the-next-generation-of-roboticists">Conclusion: Empowering the Next Generation of Roboticists<a href="https://engineerabdullahiqbal.github.io/hackathon-book-project/blog/introducing-physical-ai-humanoid-robotics-book#conclusion-empowering-the-next-generation-of-roboticists" class="hash-link" aria-label="Direct link to Conclusion: Empowering the Next Generation of Roboticists" title="Direct link to Conclusion: Empowering the Next Generation of Roboticists" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusion-empowering-the-next-generation-of-roboticists">Conclusion: Empowering the Next Generation of Roboticists<a href="https://engineerabdullahiqbal.github.io/roboailearner/blog/introducing-physical-ai-humanoid-robotics-book#conclusion-empowering-the-next-generation-of-roboticists" class="hash-link" aria-label="Direct link to Conclusion: Empowering the Next Generation of Roboticists" title="Direct link to Conclusion: Empowering the Next Generation of Roboticists" translate="no">​</a></h2>
 <p>"Physical AI &amp; Humanoid Robotics" is your guide to mastering intelligent system deployment in the real world. By focusing on safety, performance, and practical considerations, we empower you to develop robust, reliable, and safe robotic applications.</p>
 <p>Dive in and transform your understanding of robotics – where your code doesn't just run, it moves atoms.</p>]]></content:encoded>
             <category>robotics</category>
