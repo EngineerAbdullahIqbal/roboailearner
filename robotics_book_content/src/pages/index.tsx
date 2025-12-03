@@ -68,7 +68,7 @@ function Home() {
       wrapperClassName="homepage-wrapper">
 
       <SplineSceneBasic
-        title="Learn Physical AI & Robotics"
+        title="Learn with RoboAI Circuit"
         subtitle="Explore the cutting-edge fusion of AI and robotics, from fundamental concepts to advanced humanoid systems."
         ctaLabel="Start Learning"
         ctaLink="/docs/course-outline"

@@ -73,11 +73,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Physical AI Book',
-      logo: {
-        alt: 'Physical AI Logo',
-        src: 'img/book-logo.png',
-      },
+      title: 'RoboAI',
       items: [
         {
           type: 'docSidebar',
