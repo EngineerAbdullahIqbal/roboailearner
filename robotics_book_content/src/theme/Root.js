@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ChatWidget from '../components/ChatWidget'; // Path adjusted
+import { AuthProvider } from '../components/AuthProvider'; // ADDED IMPORT
 
 function Root({ children }) {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -53,7 +54,7 @@ function Root({ children }) {
   }, []);
 
   return (
-    <>
+    <AuthProvider> {/* WRAPPED WITH AuthProvider */}
       {children}
       <ChatWidget
         isOpen={isChatOpen}
@@ -112,7 +113,7 @@ function Root({ children }) {
           Ask AI about this
         </button>
       )}
-    </>
+    </AuthProvider>
   );
 }
 
