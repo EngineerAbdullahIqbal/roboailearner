@@ -45,6 +45,8 @@ const config: Config = {
     [
       'classic',
       {
+        docs: {
+          sidebarPath: './sidebars.ts',
           editUrl:
             'https://github.com/EngineerAbdullahIqbal/roboailearner/tree/main/robotics_book_content/',
         },
