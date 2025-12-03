@@ -32,7 +32,7 @@ const config: Config = {
   projectName: 'roboailearner', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  // onBrokenMarkdownLinks: 'warn', // Deprecated, use siteConfig.markdown.onBrokenMarkdownLinks if needed
 
   i18n: {
     defaultLocale: 'en',
@@ -57,6 +57,8 @@ const config: Config = {
           showReadingTime: true,
           editUrl:
             'https://github.com/EngineerAbdullahIqbal/roboailearner/tree/main/robotics_book_content/',
+          onInlineAuthors: 'ignore',
+          onUntruncatedBlogPosts: 'ignore',
         },
         theme: {
           customCss: './src/css/custom.css',

@@ -1,5 +1,5 @@
 ---
-id: introducing-physical-ai-humanoid-robotics-book
+slug: introducing-physical-ai-humanoid-robotics-book
 title: Bridging the Gap - Announcing 'Physical AI & Humanoid Robotics'
 author: Claude
 author_title: AI Assistant
