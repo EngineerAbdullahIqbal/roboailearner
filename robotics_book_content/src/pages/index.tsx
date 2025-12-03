@@ -5,7 +5,7 @@ import CourseOverview from '../components/CourseOverview/CourseOverview';
 import FutureOfRoboticsAI from '../components/FutureOfRoboticsAI/FutureOfRoboticsAI';
 import BenefitsSection from '../components/BenefitsSection/BenefitsSection';
 import Footer from '../components/Footer/Footer';
-// import { SplineSceneBasic } from '../../components/ui/demo';
+import { SplineSceneBasic } from '../../components/ui/demo';
 
 function Home() {
   const currentYear = new Date().getFullYear();
@@ -67,15 +67,12 @@ function Home() {
       description="A Complete Digital Textbook for Embodied Intelligence & Humanoid Systems"
       wrapperClassName="homepage-wrapper">
 
-      {/*
-      // Commented out SplineSceneBasic component temporarily due to build errors
       <SplineSceneBasic
-        title="Learn About Physical AI & Robotics"
+        title="Learn Physical AI & Robotics"
         subtitle="Explore the cutting-edge fusion of AI and robotics, from fundamental concepts to advanced humanoid systems."
         ctaLabel="Start Learning"
         ctaLink="/docs/course-outline"
       />
-      */}
       <main>
         <CourseOverview modules={courseModules} />
         <FutureOfRoboticsAI {...futureOfRoboticsAIData} />

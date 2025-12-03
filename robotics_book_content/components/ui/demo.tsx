@@ -1,6 +1,6 @@
 'use client'
 
-// import { SplineScene } from "./splite";
+import { SplineScene } from "./splite";
 import { Card } from "./card"
 import { Spotlight } from "./spotlight"
 import Link from '@docusaurus/Link'; // Import Docusaurus Link
@@ -23,7 +23,7 @@ export function SplineSceneBasic({ title, subtitle, ctaLabel, ctaLink }: SplineS
       <div className="flex h-full">
         {/* Left content */}
         <div className="flex-1 p-8 relative z-10 flex flex-col justify-center items-center text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">
+          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
             {title}
           </h1>
           <p className="mt-4 text-neutral-300 max-w-lg">
@@ -40,13 +40,10 @@ export function SplineSceneBasic({ title, subtitle, ctaLabel, ctaLink }: SplineS
 
         {/* Right content */}
         <div className="flex-1 relative">
-                    {/*
-                    // Commented out SplineScene component temporarily due to build errors
-                    <SplineScene
-                      scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                      className="w-full h-full"
-                    />
-                    */}        </div>
+          <SplineScene
+            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            className="w-full h-full"
+          />        </div>
       </div>
     </Card>
   )

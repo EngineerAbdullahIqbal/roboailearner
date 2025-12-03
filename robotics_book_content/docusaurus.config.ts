@@ -5,6 +5,9 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
+  plugins: [
+    require.resolve('./plugins/my-webpack-aliases'),
+  ],
   title: 'Physical AI & Humanoid Robotics',
   tagline: 'From Simulation to Reality',
   favicon: 'img/book-logo.png',
