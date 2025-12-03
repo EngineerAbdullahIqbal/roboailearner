@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-
-const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000'; // Adjust to your backend URL
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const ChatWidget = ({ isOpen, toggleChat, selectedText, clearSelectedText }) => {
+  const { siteConfig } = useDocusaurusContext();
+  const API_BASE_URL = siteConfig.customFields.backendUrl;
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [conversationId, setConversationId] = useState(null);

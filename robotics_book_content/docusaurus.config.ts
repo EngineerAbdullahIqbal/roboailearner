@@ -9,6 +9,10 @@ const config: Config = {
   tagline: 'From Simulation to Reality',
   favicon: 'img/book-logo.png',
 
+  customFields: {
+    backendUrl: process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000',
+  },
+
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
@@ -22,7 +26,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   organizationName: 'EngineerAbdullahIqbal', // Usually your GitHub org/user name.
-  projectName: 'hackathon-book-project', // Usually your repo name.
+  projectName: 'roboailearner', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -41,15 +45,13 @@ const config: Config = {
     [
       'classic',
       {
-        docs: {
-          sidebarPath: './sidebars.ts',
           editUrl:
-            'https://github.com/EngineerAbdullahIqbal/hackathon-book-project/tree/main/tmp_docusaurus_project/',
+            'https://github.com/EngineerAbdullahIqbal/roboailearner/tree/main/robotics_book_content/',
         },
         blog: {
           showReadingTime: true,
           editUrl:
-            'https://github.com/EngineerAbdullahIqbal/hackathon-book-project/tree/main/tmp_docusaurus_project/',
+            'https://github.com/EngineerAbdullahIqbal/roboailearner/tree/main/robotics_book_content/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -78,7 +80,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/EngineerAbdullahIqbal/hackathon-book-project',
+          href: 'https://github.com/EngineerAbdullahIqbal/roboailearner',
           label: 'GitHub',
           position: 'right',
         },
