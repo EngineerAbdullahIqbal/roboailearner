@@ -1,0 +1,131 @@
+## Assessment & Evaluation
+
+### Knowledge Check
+
+Test your understanding of **{{TITLE}}** with these questions.
+
+<details>
+<summary><strong>Question 1: Conceptual Understanding</strong></summary>
+
+**Q:** Explain the difference between a ROS 2 "topic" and a "service" in the context of {{TITLE}}.
+
+**Answer:**
+- **Topics**: Used for continuous, asynchronous data streams
+- **Services**: Used for request-response patterns requiring confirmation
+
+</details>
+
+<details>
+<summary><strong>Question 2: Architecture Design</strong></summary>
+
+**Q:** Design a ROS 2 architecture for a humanoid balance control system.
+
+**Answer:**
+
+\`\`\`mermaid
+graph TB
+    IMU[IMU Sensor] -->|500Hz| Balance[Balance Controller]
+    Balance -->|200Hz| Motors[Motor Controller]
+\`\`\`
+
+</details>
+
+---
+
+### Coding Challenges
+
+#### Challenge 1: Waypoint Navigation (⭐⭐☆☆☆)
+
+**Objective**: Extend the lab code to navigate through waypoints.
+
+**Requirements:**
+- Load waypoints from YAML
+- Navigate sequentially
+- Publish completion status
+
+**Starter Code:**
+
+\`\`\`python
+class WaypointNavigator(PhysicalAINode):
+    def __init__(self):
+        super().__init__()
+        self.waypoints = [
+            np.array([1.0, 0.0, 0.0]),
+            np.array([1.0, 1.0, 0.0]),
+        ]
+        self.current_waypoint_idx = 0
+    
+    def control_loop(self):
+        # TODO: Implement waypoint navigation
+        pass
+\`\`\`
+
+---
+
+### Project Specification
+
+**Capstone Mini-Project**: Autonomous Room Navigation
+
+Build a complete system demonstrating all concepts from {{TITLE}}.
+
+#### Requirements
+
+**Functional:**
+1. Autonomous navigation from point A to B
+2. Avoid static obstacles
+3. Replan if path blocked
+4. Operate in Gazebo
+5. ±0.2m accuracy
+
+**Technical:**
+1. Use ROS 2 Humble/Iron
+2. 3+ custom nodes (perception, planning, control)
+3. Topics and services
+4. Launch file with parameters
+5. Unit + integration tests
+
+**Deliverables:**
+- GitHub repository
+- Setup README
+- 90-second demo video
+- 2-page report
+
+#### Evaluation Rubric
+
+| Criterion | Weight | Excellent (5) | Good (3) | Needs Work (1) |
+|-----------|--------|---------------|----------|----------------|
+| **Functionality** | 30% | Fully autonomous | Works mostly | Frequent failures |
+| **Code Quality** | 20% | Well-documented | Some docs | Poorly organized |
+| **ROS 2 Integration** | 20% | Proper usage | Basic | Minimal |
+| **Testing** | 15% | >80% coverage | Some tests | No tests |
+| **Documentation** | 15% | Comprehensive | Adequate | Minimal |
+
+**Total**: 100 points
+
+---
+
+### Self-Assessment Checklist
+
+- [ ] Explain core concepts of {{TITLE}}
+- [ ] Create ROS 2 packages from scratch
+- [ ] Implement publishers/subscribers
+- [ ] Debug using ROS 2 tools
+- [ ] Write unit tests
+- [ ] Launch nodes with parameters
+- [ ] Integrate with Gazebo
+- [ ] Optimize control loop performance
+
+<Admonition type="success" title="Ready to Advance?">
+If checked all boxes and completed one challenge, advance to next chapter!
+</Admonition>
+
+---
+
+### Additional Resources
+
+**Practice:**
+- [ROS 2 Tutorials](https://docs.ros.org/en/humble/Tutorials.html)
+
+**Community:**
+- [ROS Discourse](https://discourse.ros.org/)
+- [Robotics Stack Exchange](https://robotics.stackexchange.com/)

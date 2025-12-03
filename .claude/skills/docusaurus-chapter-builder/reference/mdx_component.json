@@ -1,0 +1,144 @@
+{
+  "version": "1.0.0",
+  "description": "MDX component configuration for Docusaurus Physical AI textbook",
+  
+  "default_imports": [
+    "Tabs",
+    "TabItem",
+    "CodeBlock",
+    "Admonition"
+  ],
+  
+  "auto_include_components": {
+    "ros2": [
+      "ROS2Node",
+      "TopicVisualizer",
+      "ServiceDiagram"
+    ],
+    "gazebo": [
+      "SimulationPlayer",
+      "URDFViewer"
+    ],
+    "isaac": [
+      "IsaacGymDemo",
+      "IsaacSimPlayer"
+    ],
+    "humanoid": [
+      "KinematicsVisualizer",
+      "GaitPatternDemo"
+    ],
+    "conversational": [
+      "VoiceCommandDemo",
+      "LLMIntegrationExample"
+    ]
+  },
+  
+  "code_block_settings": {
+    "theme": "dracula",
+    "show_line_numbers": true,
+    "highlight_on_hover": true,
+    "supported_languages": [
+      "python",
+      "cpp",
+      "bash",
+      "yaml",
+      "xml",
+      "json",
+      "urdf"
+    ]
+  },
+  
+  "admonition_types": {
+    "note": {
+      "icon": "📝",
+      "color": "blue",
+      "use_case": "General information"
+    },
+    "tip": {
+      "icon": "💡",
+      "color": "green",
+      "use_case": "Helpful hints"
+    },
+    "info": {
+      "icon": "ℹ️",
+      "color": "cyan",
+      "use_case": "Important information"
+    },
+    "caution": {
+      "icon": "⚠️",
+      "color": "yellow",
+      "use_case": "Warnings"
+    },
+    "danger": {
+      "icon": "🚨",
+      "color": "red",
+      "use_case": "Critical warnings"
+    },
+    "success": {
+      "icon": "✅",
+      "color": "green",
+      "use_case": "Success confirmation"
+    }
+  },
+  
+  "heading_style": {
+    "format": "atx",
+    "max_depth": 4,
+    "auto_anchor": true
+  },
+  
+  "content_guidelines": {
+    "max_section_length": {
+      "words": 1500
+    },
+    "code_block_max_lines": {
+      "value": 50
+    }
+  },
+  
+  "frontmatter_schema": {
+    "required_fields": [
+      "title",
+      "sidebar_position",
+      "description"
+    ],
+    "optional_fields": [
+      "keywords",
+      "difficulty",
+      "hardware_required",
+      "prerequisites"
+    ]
+  },
+  
+  "personalization_settings": {
+    "difficulty_adjustment": {
+      "beginner": {
+        "show_extended_explanations": true,
+        "hide_advanced_sections": true,
+        "add_glossary_tooltips": true
+      },
+      "intermediate": {
+        "show_extended_explanations": false,
+        "hide_advanced_sections": false
+      },
+      "advanced": {
+        "show_research_papers": true
+      }
+    }
+  },
+  
+  "translation_settings": {
+    "supported_languages": {
+      "en": "English",
+      "ur": "Urdu (اردو)"
+    },
+    "preserve_code_blocks": true,
+    "preserve_technical_terms": true
+  },
+  
+  "rag_chatbot_integration": {
+    "embedding_trigger": "on_chapter_save",
+    "context_window": 3,
+    "related_chapters_count": 5
+  }
+}

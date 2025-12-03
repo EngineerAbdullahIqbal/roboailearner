@@ -1,0 +1,35 @@
+/**
+ * FutureOfRoboticsAI.module.css
+ */
+
+.futureOfRoboticsAISection {
+  padding: 80px 0;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-text-color);
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: var(--ifm-heading-font-weight);
+  margin-bottom: 1.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.sectionDescription {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--ifm-text-color);
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  .sectionDescription {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}

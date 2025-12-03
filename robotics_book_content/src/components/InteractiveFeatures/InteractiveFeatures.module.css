@@ -1,0 +1,69 @@
+/**
+ * InteractiveFeatures.module.css
+ */
+
+.interactiveFeaturesSection {
+  padding: 80px 0;
+  background-color: var(--ifm-background-color); /* Light/Dark mode aware background */
+  color: var(--ifm-text-color);
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Increased min width */
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.featureCard {
+  background: var(--lab-card-bg); /* Glassmorphism base */
+  border: var(--lab-card-border);
+  border-radius: var(--lab-card-radius);
+  padding: 2.5rem; /* Increased padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--lab-card-shadow);
+  /* Glassmorphism effect */
+  background: rgba(var(--ifm-color-primary-rgb), 0.05);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  min-height: 280px; /* Ensure minimum height for cards */
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--custom-neon-cyan);
+  box-shadow: 0 0 25px rgba(var(--custom-neon-cyan-rgb), 0.3); /* Soft cyan glow */
+}
+
+.featureIllustration {
+  width: 90px; /* Slightly larger illustrations */
+  height: 90px;
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 0 5px rgba(var(--custom-electric-blue-rgb), 0.5)); /* Electric blue accent glow */
+  color: var(--custom-electric-blue); /* Apply accent color to SVG strokes/fills */
+}
+
+.featureName {
+  font-size: 1.6rem; /* Slightly larger name */
+  font-weight: var(--ifm-heading-font-weight);
+  margin-bottom: 0.6rem;
+  color: var(--ifm-heading-color);
+}
+
+.featureDescription {
+  font-size: 1.05rem; /* Larger description font size */
+  color: var(--ifm-text-color);
+  opacity: 0.8;
+  line-height: 1.5; /* Added line height */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+}

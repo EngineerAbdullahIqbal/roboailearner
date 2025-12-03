@@ -1,0 +1,108 @@
+/* src/pages/index.module.css */
+
+.heroBanner {
+  padding: 6rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--ifm-color-primary-darkest) 0%, var(--ifm-color-primary) 100%);
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.heroLogoWrapper {
+    margin-bottom: 1.5rem;
+}
+
+.heroLogo {
+    height: 180px;
+    width: auto;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+  max-width: var(--ifm-container-width);
+  margin: 0 auto;
+}
+
+/* Features Section */
+.featuresSection {
+    background-color: var(--ifm-background-surface-color);
+    border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.featuresGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    text-align: center;
+}
+
+.featureItem h3 {
+    font-size: 1.5rem;
+    color: var(--ifm-color-primary);
+    margin-bottom: 1rem;
+}
+
+.featureItem p {
+    font-size: 1.1rem;
+    color: var(--ifm-color-emphasis-700);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4rem 2rem;
+  }
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  .heroLogo {
+      height: 120px;
+  }
+}

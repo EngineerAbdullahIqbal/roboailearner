@@ -1,0 +1,61 @@
+openapi: 3.0.0
+info:
+  title: RAG Chatbot API
+  version: 1.0.0
+paths:
+  /chat:
+    post:
+      summary: Send a message to the RAG chatbot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - message
+              properties:
+                message:
+                  type: string
+                  description: The user's message to the chatbot.
+      responses:
+        '200':
+          description: Chatbot's response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    description: The chatbot's reply.
+  /chat/context:
+    post:
+      summary: Send a message to the RAG chatbot with selected text context
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - message
+                - context_text
+              properties:
+                message:
+                  type: string
+                  description: The user's message to the chatbot.
+                context_text:
+                  type: string
+                  description: The selected text from the book as context.
+      responses:
+        '200':
+          description: Chatbot's response based on context.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    description: The chatbot's reply based on the provided context.

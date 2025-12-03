@@ -1,0 +1,125 @@
+/**
+ * HeroHeader.module.css
+ */
+
+.heroBanner {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem 0;
+  background-color: var(--custom-dark-gray); /* Use dark gray background */
+  color: var(--custom-white); /* White text */
+  text-align: center;
+  /* Moving robot background for the heroBanner itself */
+  background-image: url('/img/moving-robot.png');
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+}
+
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(145deg, rgba(26,26,26,0.8) 0%, rgba(5,5,5,0.9) 100%); /* Overlay gradient */
+  opacity: 1; /* Make overlay fully opaque */
+  z-index: 0;
+}
+
+.heroBanner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/img/moving-robot.png'); /* Use the same image for animation layer */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.1; /* Subtle overlay of the robot for motion effect */
+  animation: backgroundPan 30s linear infinite alternate; /* Slow pan animation */
+  z-index: -1; /* Behind the main content and gradient overlay */
+}
+
+@keyframes backgroundPan {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+@keyframes backgroundPulse { /* Keep the pulse for general elements if needed elsewhere */
+  0% { transform: scale(1); opacity: 0.15; }
+  100% { transform: scale(1.02); opacity: 0.2; }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__title {
+  font-size: 3.5rem;
+  font-weight: var(--ifm-heading-font-weight);
+  margin-bottom: 0.5rem;
+  color: var(--custom-white);
+  /* subtle neon gradient/outline effect */
+  background: linear-gradient(90deg, var(--custom-electric-blue) 0%, var(--custom-neon-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 5px var(--custom-electric-blue));
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--custom-metallic-silver);
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.button--secondary {
+  /* Override Docusaurus default button--secondary for custom neon look */
+  background: linear-gradient(90deg, var(--custom-electric-blue) 0%, var(--custom-neon-cyan) 100%);
+  color: var(--custom-white);
+  border: none;
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); /* Soft glow */
+  transition: all 0.3s ease;
+}
+
+.button--secondary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+  color: var(--custom-white); /* Keep text white on hover */
+  background: linear-gradient(90deg, var(--custom-electric-blue) 0%, var(--custom-neon-cyan) 100%); /* Maintain gradient */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    min-height: 70vh;
+  }
+  .hero__title {
+    font-size: 2.5rem;
+  }
+  .hero__subtitle {
+    font-size: 1.2rem;
+  }
+  .heroBanner::before {
+    background-size: 60% auto, 80% auto;
+  }
+}

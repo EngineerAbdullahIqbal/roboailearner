@@ -1,0 +1,11 @@
+{
+  "theme_name": "Dracula",
+  "ros_node": "fill:#ff79c6,stroke:#bd93f9,stroke-width:2px,color:white",
+  "ros_topic": "fill:#8be9fd,stroke:#6272a4,stroke-width:2px,color:black,shape:rect",
+  "ros_service": "fill:#f1fa8c,stroke:#f1fa8c,stroke-width:2px,stroke-dasharray: 5 5,color:black",
+  
+  "hw_device": "fill:#bd93f9,stroke:#44475a,stroke-width:2px,color:white",
+  "hw_sensor": "fill:#50fa7b,stroke:#44475a,stroke-width:2px,color:black",
+  "hw_power": "fill:#ff5555,stroke:#44475a,stroke-width:2px,color:white",
+  "hw_network": "fill:#8be9fd,stroke:#44475a,stroke-width:2px,stroke-dasharray: 5 5,color:black"
+}

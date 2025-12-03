@@ -1,0 +1,7 @@
+# Custom Service Definition for Project 2
+# SorterControl.srv
+
+string object_color  # "red", "blue", "green"
+---
+bool success
+string message

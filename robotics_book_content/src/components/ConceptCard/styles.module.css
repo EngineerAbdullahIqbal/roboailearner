@@ -1,0 +1,62 @@
+/* ConceptCard/styles.module.css */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--lab-card-bg);
+  border: var(--lab-card-border);
+  border-radius: var(--lab-card-radius);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  text-decoration: none;
+  color: var(--ifm-text-color);
+  box-shadow: var(--lab-card-shadow);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--lab-card-hover-shadow);
+  text-decoration: none;
+  border-color: var(--ifm-color-primary);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: rgba(0, 122, 255, 0.1);
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+.linkText {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ifm-color-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.card:hover .linkText {
+  text-decoration: underline;
+}

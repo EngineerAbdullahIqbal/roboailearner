@@ -1,0 +1,9 @@
+graph LR;
+    %% Theme Definitions
+    classDef node fill:#ff79c6,stroke:#bd93f9,stroke-width:2px,color:white;
+    classDef topic fill:#8be9fd,stroke:#6272a4,stroke-width:2px,color:black;
+    classDef service fill:#f1fa8c,stroke:#f1fa8c,stroke-width:2px,stroke-dasharray: 5 5,color:black;
+
+    %% Example Structure
+    CameraNode((Camera Driver)):::node --> /camera/image_raw[/image_raw/]:::topic
+    /camera/image_raw[/image_raw/]:::topic --> ImageProc((Image Proc)):::node

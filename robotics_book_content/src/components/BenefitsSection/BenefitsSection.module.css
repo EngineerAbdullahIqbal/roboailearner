@@ -1,0 +1,79 @@
+/**
+ * BenefitsSection.module.css
+ */
+
+.benefitsSection {
+  padding: 80px 0;
+  background-color: var(--custom-dark-gray); /* Dark background for this section */
+  color: var(--custom-white);
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: var(--ifm-heading-font-weight);
+  margin-bottom: 1.5rem;
+  color: var(--custom-white);
+}
+
+.scrollContainer {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  padding-bottom: 1rem; /* Space for scrollbar */
+}
+
+.benefitGrid {
+  display: flex; /* Use flexbox for horizontal layout */
+  gap: 2rem;
+  padding: 1rem 0;
+  justify-content: center; /* Center cards if not enough to scroll */
+  flex-wrap: nowrap; /* Prevent wrapping for horizontal scroll */
+}
+
+.benefitCard {
+  flex: 0 0 300px; /* Fixed width for cards, adjust as needed */
+  background: rgba(var(--custom-white-rgb), 0.05); /* Subtle white tint for dark background */
+  border: 1px solid rgba(var(--custom-metallic-silver-rgb), 0.2);
+  border-radius: var(--lab-card-radius);
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  min-height: 200px; /* Ensure minimum height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* Glassmorphism effect */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.benefitCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--custom-neon-cyan);
+  box-shadow: 0 0 25px rgba(var(--custom-neon-cyan-rgb), 0.3);
+}
+
+.benefitTitle {
+  font-size: 1.4rem;
+  font-weight: var(--ifm-heading-font-weight);
+  margin-bottom: 1rem;
+  color: var(--custom-neon-cyan); /* Neon accent for title */
+}
+
+.benefitDescription {
+  font-size: 1rem;
+  color: var(--custom-metallic-silver);
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .benefitGrid {
+    justify-content: flex-start; /* Align left for scrolling on small screens */
+  }
+  .benefitCard {
+    flex: 0 0 80vw; /* Make cards take up 80% of viewport width */
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}

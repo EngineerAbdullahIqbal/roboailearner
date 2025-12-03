@@ -1,0 +1,72 @@
+/**
+ * ChaptersSection.module.css
+ */
+
+.chaptersSection {
+  padding: 80px 0;
+  background-color: var(--ifm-background-color); /* Light/Dark mode aware background */
+  color: var(--ifm-text-color);
+}
+
+.chapterGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Increased min width */
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.chapterCard {
+  background: var(--lab-card-bg);
+  border: var(--lab-card-border);
+  border-radius: var(--lab-card-radius);
+  padding: 2rem; /* Increased padding */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  transition: all 0.3s ease;
+  box-shadow: var(--lab-card-shadow);
+  text-decoration: none; /* Remove underline for links */
+  color: inherit; /* Inherit text color */
+
+  /* Glassmorphism effect */
+  background: rgba(var(--ifm-color-primary-rgb), 0.05);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  min-height: 300px; /* Ensure minimum height for cards */
+}
+
+.chapterIllustration {
+  width: 90px;
+  height: 90px;
+  align-self: center; /* Center the illustration */
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 0 5px rgba(var(--custom-neon-cyan-rgb), 0.5));
+  color: var(--custom-neon-cyan);
+}
+
+.chapterNumber {
+  font-size: 0.95rem; /* Slightly larger */
+  color: var(--custom-metallic-silver);
+  margin-bottom: 0.5rem;
+}
+
+.chapterTitle {
+  font-size: 1.4rem; /* Slightly larger title */
+  font-weight: var(--ifm-heading-font-weight);
+  margin-bottom: 0.6rem;
+  color: var(--ifm-heading-color);
+}
+
+.chapterSynopsis {
+  font-size: 1rem; /* Larger synopsis font size */
+  color: var(--ifm-text-color);
+  opacity: 0.8;
+  line-height: 1.5; /* Added line height */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .chapterGrid {
+    grid-template-columns: 1fr;
+  }
+}

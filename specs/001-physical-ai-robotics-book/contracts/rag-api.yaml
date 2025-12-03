@@ -1,0 +1,157 @@
+openapi: 3.0.0
+info:
+  title: RAG Agent API
+  version: 1.0.0
+description: API for the Retrieval-Augmented Generation (RAG) system with Agent SDK integration for the Physical AI & Humanoid Robotics textbook.
+
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+
+paths:
+  /api/health:
+    get:
+      summary: Health Check
+      operationId: getHealth
+      responses:
+        '200':
+          description: Health check successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+
+  /api/chat:
+    post:
+      summary: Engage in a chat with the RAG agent
+      operationId: chatWithAgent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        '200':
+          description: Successful chat response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+        '429':
+          description: Too Many Requests
+        '500':
+          description: Internal Server Error
+
+  /api/chat/selection:
+    post:
+      summary: Get explanation for selected text using RAG agent
+      operationId: explainSelection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SelectionRequest'
+      responses:
+        '200':
+          description: Successful explanation response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+        '429':
+          description: Too Many Requests
+        '500':
+          description: Internal Server Error
+
+  /api/ingest:
+    post:
+      summary: Trigger data ingestion pipeline
+      operationId: triggerIngestion
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                source_path:
+                  type: string
+                  description: Optional path to the content to ingest. Defaults to book content.
+                  example: "/path/to/new/content"
+      responses:
+        '200':
+          description: Ingestion triggered successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Ingestion pipeline triggered."
+        '500':
+          description: Internal Server Error
+
+components:
+  schemas:
+    ChatMessage:
+      type: object
+      properties:
+        role:
+          type: string
+          enum: [user, assistant]
+          example: "user"
+        content:
+          type: string
+          example: "What is Physical AI?"
+
+    ChatRequest:
+      type: object
+      properties:
+        conversation_id:
+          type: string
+          nullable: true
+          example: "abc-123"
+        message:
+          type: string
+          example: "Tell me about Chapter 1."
+        chat_history:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatMessage'
+
+    SelectionRequest:
+      type: object
+      properties:
+        conversation_id:
+          type: string
+          nullable: true
+          example: "abc-123"
+        selected_text:
+          type: string
+          example: "embodied intelligence"
+        context_url:
+          type: string
+          example: "/docs/chapter1.mdx"
+
+    ChatResponse:
+      type: object
+      properties:
+        conversation_id:
+          type: string
+          example: "abc-123"
+        response:
+          type: string
+          example: "Physical AI refers to embodied intelligence..."
+        sources:
+          type: array
+          items:
+            type: string
+          example:
+            - "chapter1.mdx:10-25"

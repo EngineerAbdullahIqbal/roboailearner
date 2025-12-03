@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Physical AI Robotics Book - Lab-Tech Theme
+ * clean, precise, functional
+ */
+
+:root {
+  /* Custom Design Color Palette - Light Mode */
+  --custom-white: #FFFFFF;
+  --custom-dark-gray: #1C1E21; /* Matches ifm-text-color light mode */
+  --custom-metallic-silver: #C0C0C0;
+  --custom-electric-blue: #007AFF; /* Matches ifm-color-primary light mode */
+  --custom-neon-cyan: #00F0FF; /* Bright neon accent */
+
+  /* Lab-Tech Color Palette - Light Mode */
+  /* Primary: Electric Blue (Precision) */
+  --ifm-color-primary: var(--custom-electric-blue);
+  --ifm-color-primary-dark: #006DE5;
+  --ifm-color-primary-darker: #0067D8;
+  --ifm-color-primary-darkest: #0055B2;
+  --ifm-color-primary-light: #1A87FF;
+  --ifm-color-primary-lighter: #268EFF;
+  --ifm-color-primary-lightest: #4DA4FF;
+
+  /* Neutral Tones */
+  --ifm-background-color: #F0F4F8; /* Light Blue Grey */
+  --ifm-background-surface-color: #E6EEF4;
+  --ifm-text-color: var(--custom-dark-gray);
+  --ifm-heading-color: #111213;
+  
+  /* Accents */
+  --lab-color-accent: #FF6B00; /* Robotics Orange */
+  --lab-color-success: #00C851;
+  --lab-color-warning: #FFBB33;
+  --lab-color-danger: #FF4444;
+
+  /* Typography */
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', monospace;
+  --ifm-heading-font-weight: 700;
+  
+  /* Layout & Spacing */
+  --ifm-container-width: 1200px;
+  --ifm-spacing-vertical: 1.5rem;
+  
+  /* Card Styling */
+  --lab-card-bg: #1B1D21;
+  --lab-card-border: 1px solid #2D3748;
+  --lab-card-radius: 8px;
+  --lab-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --lab-card-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* Lab-Tech - Dark Mode */
+[data-theme='dark'] {
+  /* Custom Design Color Palette - Dark Mode */
+  --custom-white: #FFFFFF;
+  --custom-dark-gray: #0A0C0E; /* Matches ifm-background-color dark mode */
+  --custom-metallic-silver: #A9A9A9; /* Slightly darker silver for dark mode */
+  --custom-electric-blue: #2997FF; /* Matches ifm-color-primary dark mode */
+  --custom-neon-cyan: #00FFFF; /* Bright neon accent */
+
+  /* Primary: Electric Blue (Neon) */
+  --ifm-color-primary: var(--custom-electric-blue);
+  --ifm-color-primary-dark: #1F8EFF;
+  --ifm-color-primary-darker: #1A8AFF;
+  --ifm-color-primary-darkest: #0B7BFF;
+  --ifm-color-primary-light: #47A6FF;
+  --ifm-color-primary-lighter: #57ADFF;
+  --ifm-color-primary-lightest: #85C3FF;
+
+  /* Neutral Tones */
+  --ifm-background-color: var(--custom-dark-gray); /* Deep Dark Grey */
+  --ifm-background-surface-color: #121417;
+  --ifm-text-color: #E5E7EB;
+  --ifm-heading-color: var(--custom-white);
+  
+  /* Card Styling */
+  --lab-card-bg: #1B1D21;
+  --lab-card-border: 1px solid #2D3748;
+}
+
+/* Global Typography & Resets */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+}
+
+/* Button Styling Override */
+.button {
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.button--primary {
+  box-shadow: 0 2px 4px rgba(0, 122, 255, 0.2);
+}
+
+.button--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 122, 255, 0.3);
+}
+
+/* Admonition Overrides for "Tech" look */
+
+.alert {
+
+  border-radius: 6px;
+
+  border: 1px solid transparent;
+
+}
+
+
+
+/* Blog List as Cards */
+
+[class^='blogListPage'] article {
+
+  background-color: var(--lab-card-bg);
+
+  border: var(--lab-card-border);
+
+  border-radius: var(--lab-card-radius);
+
+  padding: 2rem;
+
+  margin-bottom: 2rem;
+
+  box-shadow: var(--lab-card-shadow);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+
+
+[class^='blogListPage'] article:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow: var(--lab-card-hover-shadow);
+
+  border-color: var(--ifm-color-primary);
+
+}
+
+
+
+[class^='blogListPage'] article h2 {
+
+  margin-bottom: 1rem;
+
+}
+
+
+
+/* Hide the default "Read more" if we make the whole card clickable (optional) */
+
+/* For now, just style the read more button */
+
+[class^='blogListPage'] footer .button {
+
+  margin-top: 1rem;
+
+}
+
+/* Custom CSS to hide blog post header elements */
+.blogPostPageWrapper article header {
+  display: none !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 996px) { /* Docusaurus default breakpoint for tablets */
+  .main-wrapper {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 768px) { /* Common breakpoint for mobile */
+  .main-wrapper {
+    padding: 0 0.5rem;
+  }
+
+  /* Ensure images are responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Make tables horizontally scrollable on small screens */
+  .markdown table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

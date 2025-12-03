@@ -1,0 +1,15 @@
+flowchart TD;
+    %% Theme Definitions
+    classDef device fill:#bd93f9,stroke:#44475a,stroke-width:2px,color:white;
+    classDef sensor fill:#50fa7b,stroke:#44475a,stroke-width:2px,color:black;
+    classDef power fill:#ff5555,stroke:#44475a,stroke-width:2px,color:white;
+
+    %% Example Structure
+    Jetson[NVIDIA Jetson Orin]:::device
+    Cam[RealSense D435i]:::sensor
+    Batt[LiPo Bat
+    
+    tery]:::power
+
+    Batt -- 12V DC --> Jetson
+    Cam -- USB 3.0 --> Jetson

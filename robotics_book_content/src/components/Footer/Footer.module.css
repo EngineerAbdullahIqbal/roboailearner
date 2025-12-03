@@ -1,0 +1,39 @@
+/**
+ * Footer.module.css
+ */
+
+.footerSection {
+  padding: 40px 0;
+  background-color: var(--custom-dark-gray); /* Use dark gray for footer */
+  color: var(--custom-white);
+  border-top: 1px solid rgba(var(--custom-metallic-silver-rgb), 0.1);
+}
+
+.footerBranding {
+  font-size: 1.5rem;
+  font-weight: var(--ifm-heading-font-weight);
+  margin-bottom: 1rem;
+  color: var(--custom-electric-blue); /* Branding in electric blue */
+}
+
+.footerLinks {
+  margin-bottom: 1rem;
+}
+
+.footerLink {
+  color: var(--custom-metallic-silver);
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.footerLink:hover {
+  color: var(--custom-neon-cyan); /* Neon accent on hover */
+}
+
+.footerAuthors,
+.footerCopyright {
+  font-size: 0.85rem;
+  color: var(--custom-metallic-silver);
+  opacity: 0.7;
+}

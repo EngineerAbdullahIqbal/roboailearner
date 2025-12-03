@@ -1,0 +1,31 @@
+/* VisualDiagram/styles.module.css */
+
+.container {
+  margin: 2rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.figure {
+  display: inline-block;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.caption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+  font-style: italic;
+}
+
+/* Mermaid diagram specific tweaks if needed */
+.mermaidWrapper {
+  display: flex;
+  justify-content: center;
+}

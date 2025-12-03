@@ -1,0 +1,311 @@
+openapi: 3.0.0
+info:
+  title: AI-Generated Book Project API
+  version: 1.0.0
+  description: API for the AI-Generated Book Project, including RAG Chatbot, User Authentication, Personalization, and Translation features.
+
+servers:
+  - url: /api/v1
+    description: Base URL for the API
+
+paths:
+  /auth/signup:
+    post:
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+                - software_background
+                - hardware_background
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: user@example.com
+                password:
+                  type: string
+                  format: password
+                  example: strong-password-123
+                software_background:
+                  type: array
+                  items:
+                    type: string
+                  example: ["Python", "ROS 2"]
+                hardware_background:
+                  type: array
+                  items:
+                    type: string
+                  example: ["NVIDIA Jetson"]
+      responses:
+        '201':
+          description: User successfully registered
+        '400':
+          description: Invalid input
+
+  /auth/signin:
+    post:
+      summary: Log in a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: user@example.com
+                password:
+                  type: string
+                  format: password
+                  example: strong-password-123
+      responses:
+        '200':
+          description: User successfully logged in
+        '401':
+          description: Invalid credentials
+
+  /auth/me:
+    get:
+      summary: Get current user information
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Current user details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user_id:
+                    type: string
+                  email:
+                    type: string
+                    format: email
+                  software_background:
+                    type: array
+                    items:
+                      type: string
+                  hardware_background:
+                    type: array
+                    items:
+                      type: string
+                  personalization_preferences:
+                    type: object
+                  translation_preference:
+                    type: string
+        '401':
+          description: Unauthorized
+
+  /chat/query:
+    post:
+      summary: Submit a query to the RAG chatbot
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+                - session_id
+              properties:
+                query:
+                  type: string
+                  example: "How does ROS 2 work?"
+                session_id:
+                  type: string
+                  example: "chat-session-123"
+      responses:
+        '200':
+          description: Chatbot response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+                  source_chunks:
+                    type: array
+                    items:
+                      type: string
+        '401':
+          description: Unauthorized
+
+  /chat/selected-text:
+    post:
+      summary: Submit selected text for context-aware queries
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - selected_text
+                - query
+                - session_id
+              properties:
+                selected_text:
+                  type: string
+                  example: "ROS 2 is a flexible framework for writing robot software."
+                query:
+                  type: string
+                  example: "Can you explain this further?"
+                session_id:
+                  type: string
+                  example: "chat-session-123"
+      responses:
+        '200':
+          description: Chatbot response based on selected text
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+                  source_chunks:
+                    type: array
+                    items:
+                      type: string
+        '401':
+          description: Unauthorized
+
+  /chat/history:
+    get:
+      summary: Retrieve chat history for a user/session
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: query
+          name: session_id
+          schema:
+            type: string
+          required: true
+          description: The ID of the chat session
+      responses:
+        '200':
+          description: List of chat messages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    sender:
+                      type: string
+                    content:
+                      type: string
+                    timestamp:
+                      type: string
+                      format: date-time
+        '401':
+          description: Unauthorized
+
+  /user/preferences:
+    post:
+      summary: Update user personalization preferences
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                personalization_preferences:
+                  type: object
+                  example:
+                    difficulty: "advanced"
+                    focus_area: "simulation"
+                translation_preference:
+                  type: string
+                  example: "Urdu"
+      responses:
+        '200':
+          description: Preferences updated successfully
+        '401':
+          description: Unauthorized
+
+  /user/preferences:
+    get:
+      summary: Retrieve user personalization preferences
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: User preferences
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  personalization_preferences:
+                    type: object
+                  translation_preference:
+                    type: string
+        '401':
+          description: Unauthorized
+
+  /chapter/{chapter_id}/translate:
+    post:
+      summary: Translate chapter content
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: chapter_id
+          schema:
+            type: string
+          required: true
+          description: The ID of the chapter to translate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - target_language
+              properties:
+                target_language:
+                  type: string
+                  example: "Urdu"
+      responses:
+        '200':
+          description: Translated chapter content
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  translated_content:
+                    type: string
+        '401':
+          description: Unauthorized
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

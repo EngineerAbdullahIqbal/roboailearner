@@ -1,0 +1,110 @@
+openapi: 3.0.0
+info:
+  title: Authentication API
+  version: 1.0.0
+description: API for user authentication, including signup and signin.
+
+servers:
+  - url: /api/auth
+    description: Authentication Service
+
+paths:
+  /signup:
+    post:
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: User's email address
+                password:
+                  type: string
+                  format: password
+                  description: User's chosen password
+                name:
+                  type: string
+                  nullable: true
+                  description: User's name (optional)
+                software_level:
+                  type: string
+                  enum: [Beginner, Intermediate, Advanced]
+                  nullable: true
+                  description: User's software experience level
+                hardware_level:
+                  type: string
+                  enum: [None, Hobbyist, Professional]
+                  nullable: true
+                  description: User's hardware experience level
+                learning_goals:
+                  type: string
+                  nullable: true
+                  description: User's learning goals
+      responses:
+        '201':
+          description: User successfully registered
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: User registered successfully
+                  userId:
+                    type: string
+                    format: uuid
+        '400':
+          description: Invalid input or user already exists
+  
+  /signin:
+    post:
+      summary: Authenticate and log in a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: User's email address
+                password:
+                  type: string
+                  format: password
+                  description: User's password
+      responses:
+        '200':
+          description: User successfully logged in
+          headers:
+            Set-Cookie:
+              description: Authentication token
+              schema:
+                type: string
+                example: "session=xyz; HttpOnly; Path=/"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Login successful
+                  token:
+                    type: string
+                    description: JWT or session token
+        '401':
+          description: Invalid credentials

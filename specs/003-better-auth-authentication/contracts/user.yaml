@@ -1,0 +1,80 @@
+openapi: 3.0.0
+info:
+  title: User Profile API
+  version: 1.0.0
+description: API for managing user profiles and settings, accessible only to authenticated users.
+
+servers:
+  - url: /api/user
+    description: User Profile Service
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []
+
+paths:
+  /profile:
+    get:
+      summary: Retrieve authenticated user's profile
+      responses:
+        '200':
+          description: User profile data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  email:
+                    type: string
+                    format: email
+                  name:
+                    type: string
+                  software_level:
+                    type: string
+                    enum: [Beginner, Intermediate, Advanced]
+                  hardware_level:
+                    type: string
+                    enum: [None, Hobbyist, Professional]
+                  learning_goals:
+                    type: string
+        '401':
+          description: Unauthorized
+    put:
+      summary: Update authenticated user's profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  nullable: true
+                software_level:
+                  type: string
+                  enum: [Beginner, Intermediate, Advanced]
+                  nullable: true
+                hardware_level:
+                  type: string
+                  enum: [None, Hobbyist, Professional]
+                  nullable: true
+                learning_goals:
+                  type: string
+                  nullable: true
+      responses:
+        '200':
+          description: Profile updated successfully
+        '401':
+          description: Unauthorized
+        '400':
+          description: Invalid input
