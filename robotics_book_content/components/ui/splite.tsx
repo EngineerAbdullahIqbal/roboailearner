@@ -1,3 +1,6 @@
+/*
+// Original content of splite.tsx commented out due to build errors related to @splinetool/react-spline
+
 'use client'
 
 import { Suspense, lazy } from 'react'
@@ -10,7 +13,7 @@ interface SplineSceneProps {
 
 export function SplineScene({ scene, className }: SplineSceneProps) {
   return (
-    <Suspense 
+    <Suspense
       fallback={
         <div className="w-full h-full flex items-center justify-center">
           <span className="loader"></span>
@@ -24,3 +27,5 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
     </Suspense>
   )
 }
+
+*/

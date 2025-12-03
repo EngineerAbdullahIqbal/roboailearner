@@ -1,6 +1,6 @@
 'use client'
 
-import { SplineScene } from "./splite";
+// import { SplineScene } from "./splite";
 import { Card } from "./card"
 import { Spotlight } from "./spotlight"
 import Link from '@docusaurus/Link'; // Import Docusaurus Link
@@ -40,11 +40,13 @@ export function SplineSceneBasic({ title, subtitle, ctaLabel, ctaLink }: SplineS
 
         {/* Right content */}
         <div className="flex-1 relative">
-          <SplineScene 
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-            className="w-full h-full"
-          />
-        </div>
+                    {/*
+                    // Commented out SplineScene component temporarily due to build errors
+                    <SplineScene
+                      scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                      className="w-full h-full"
+                    />
+                    */}        </div>
       </div>
     </Card>
   )
