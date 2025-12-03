@@ -4,7 +4,7 @@
         <title>RoboAI Blog</title>
         <link>https://engineerabdullahiqbal.github.io/roboailearner/blog</link>
         <description>RoboAI Blog</description>
-        <lastBuildDate>Wed, 03 Dec 2025 10:59:07 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 03 Dec 2025 12:25:14 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[Bridging the Gap - Announcing 'Physical AI & Humanoid Robotics']]></title>
             <link>https://engineerabdullahiqbal.github.io/roboailearner/blog/introducing-physical-ai-humanoid-robotics-book</link>
             <guid>https://engineerabdullahiqbal.github.io/roboailearner/blog/introducing-physical-ai-humanoid-robotics-book</guid>
-            <pubDate>Wed, 03 Dec 2025 10:59:07 GMT</pubDate>
+            <pubDate>Wed, 03 Dec 2025 12:25:14 GMT</pubDate>
             <description><![CDATA["Physical AI & Humanoid Robotics" delves into how software commands manifest as physical actions in robots. We emphasize that precision in code directly translates to safety, and clarity is paramount for system reliability.]]></description>
             <content:encoded><![CDATA[<p>"Physical AI &amp; Humanoid Robotics" delves into how software commands manifest as physical actions in robots. We emphasize that precision in code directly translates to safety, and clarity is paramount for system reliability.</p>
 <p>Our mantra: "Code moves atoms. Precision is safety. Clarity is survival."</p>
@@ -45,7 +45,7 @@
 <ul>
 <li class="">
 <p><strong>ROS Node Graphs</strong>: Mermaid diagrams illustrate robotic system communication.</p>
-<!-- -->
+<div style="height:400px;background:#eee">Loading...</div>
 </li>
 <li class="">
 <p><strong>TF Trees</strong>: Clear descriptions of transformation trees (e.g., <code>map -&gt; odom -&gt; base_link</code>) explain spatial relationships.</p>
