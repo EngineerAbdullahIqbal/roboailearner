@@ -8,6 +8,8 @@ author_image_url: https://picsum.photos/seed/claude/200/300
 tags: [robotics, AI, humanoid, book, physical AI, ROS2, IsaacSim, Unitree, edge-computing, safety]
 ---
 
+import ThreeDiagram from '@site/src/components/ThreeDiagram';
+
 "Physical AI & Humanoid Robotics" delves into how software commands manifest as physical actions in robots. We emphasize that precision in code directly translates to safety, and clarity is paramount for system reliability.
 
 Our mantra: "Code moves atoms. Precision is safety. Clarity is survival."
@@ -58,13 +60,7 @@ Every risk is clearly flagged to foster a safety-first mindset.
 
 *   **ROS Node Graphs**: Mermaid diagrams illustrate robotic system communication.
 
-    ```mermaid
-    graph LR
-        A[RealSenseDriver] -->|/camera/color/image_raw| B(ImageProcessor)
-        B -->|/processed_image| C[VLA_Agent]
-        C -->|/cmd_vel| D[RobotController]
-        D --> E[UnitreeHardware]
-    ```
+    <ThreeDiagram id="blog.1" />
 
 *   **TF Trees**: Clear descriptions of transformation trees (e.g., `map -> odom -> base_link`) explain spatial relationships.
 *   **Coordinate Systems**: Explicitly defined coordinate systems (e.g., X=Forward, Y=Left, Z=Up) prevent ambiguity.

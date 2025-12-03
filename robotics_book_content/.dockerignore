@@ -1,0 +1,11 @@
+node_modules/
+build/
+.docusaurus/
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+coverage/
+dist/
+.cache/

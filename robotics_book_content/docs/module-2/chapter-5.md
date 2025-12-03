@@ -24,12 +24,9 @@ Depth cameras leverage various principles to infer the distance to objects in th
 ### 🛠️ Architecture: Point Cloud Processing Pipeline
 This chapter focuses on converting a 2D depth image into a 3D `PointCloud2` message. The basic architecture involves a camera node publishing depth images, which are then subscribed to and processed by our custom point cloud converter node, and finally visualized in `RViz2`.
 
-```mermaid
-graph LR
-    A[CameraNode] -->|/camera/depth/image_raw (sensor_msgs/msg/Image)| B(DepthToPointCloudNode)
-    B -->|/camera/depth/points (sensor_msgs/msg/PointCloud2)| C[RViz2]
-    A[CameraNode] -->|/camera/camer-info (sensor_msgs/msg/CameraInfo)| B(DepthToPointCloudNode)
-```
+import ThreeDiagram from '@site/src/components/ThreeDiagram';
+
+<ThreeDiagram id="5.1" />
 
 **ROS 2 Topics and Messages:**
 *   `/camera/depth/image_raw`: A `sensor_msgs/msg/Image` message containing the 2D depth map. Each pixel's value represents distance.

@@ -25,14 +25,9 @@ Finding a path from Pose A to Pose B while avoiding obstacles (including the rob
 ### 🛠️ Architecture: MoveIt 2
 ROS 2 uses **MoveIt 2** as the standard motion planning framework.
 
-```mermaid
-graph TD
-    A[User Goal / VLA Agent] -->|MoveGroup Interface| B(MoveIt 2 Planner)
-    B -->|Inverse Kinematics| C[IK Solver (KDL/Trac-IK)]
-    B -->|Collision Checking| D[Planning Scene]
-    B -->|Trajectory| E[Trajectory Execution]
-    E -->|/joint_trajectory| F[Robot Controller]
-```
+import ThreeDiagram from '@site/src/components/ThreeDiagram';
+
+<ThreeDiagram id="7.1" />
 
 ### 💻 Implementation: Basic FK/IK with Python
 While MoveIt handles heavy lifting, understanding the math is crucial. We'll use a simple library to demonstrate.

@@ -129,10 +129,9 @@ Consider a robot navigating a cluttered environment. Its LiDAR sensor might publ
 ### 🛠️ Architecture
 Two nodes communicating via a topic.
 
-```mermaid
-graph LR
-    A[CameraNode] -->|/camera/image_raw| B[ObjectDetectionNode]
-```
+import ThreeDiagram from '@site/src/components/ThreeDiagram';
+
+<ThreeDiagram id="2.1" />
 
 ### 💻 Implementation
 Here, we create a simple publisher and subscriber pair. The `MinimalPublisher` node publishes `String` messages, and the `MinimalSubscriber` node receives them. Pay close attention to the QoS profile definition, as this is critical for real-world robotics.
@@ -334,11 +333,7 @@ This synchronous nature means the calling node is blocked until the service retu
 ### 🛠️ Architecture
 A client node requesting a service from a server node.
 
-```mermaid
-graph LR
-    A[NavigationNode] -- Request/Response --> B[BatteryMonitorNode]
-    A -- Call Service --> B(GetBatteryStatus Service)
-```
+<ThreeDiagram id="2.2" />
 
 ### 💻 Implementation
 This example demonstrates a simple service server and client. The `AddTwoIntsServer` node provides a service that adds two integers, and the `AddTwoIntsClient` node calls this service.
