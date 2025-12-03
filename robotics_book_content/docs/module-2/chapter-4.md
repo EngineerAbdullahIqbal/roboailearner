@@ -11,11 +11,9 @@ A critical aspect of image streams is Quality of Service (QoS). For high-bandwid
 ### 🛠️ Architecture
 The fundamental architecture involves a camera driver node publishing raw image data, which is then subscribed to by an image processing node. The processed image is subsequently published on a new topic for downstream consumption, perhaps by a Visual Language Action (VLA) agent or a simple display tool.
 
-```mermaid
-graph LR
-    A[Camera Driver Node] -- /camera/image_raw --> B(Image Processing Node)
-    B -- /camera/image_processed --> C[VLA Agent/Display Node]
-```
+import ThreeDiagram from '@site/src/components/ThreeDiagram';
+
+<ThreeDiagram id="4.1" />
 
 ### 💻 Implementation: Acquiring and Processing Camera Data
 This implementation will show a single ROS 2 node that subscribes to a raw image topic, converts the image using `cv_bridge`, applies a simple edge detection filter (Canny), and then publishes the processed image. This demonstrates a common pattern for integrating real-time vision into robotic systems.

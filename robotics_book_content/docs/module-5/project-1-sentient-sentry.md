@@ -17,19 +17,9 @@ This loop repeats continuously, allowing the robot to "track" the face. The **Qu
 
 The system consists of two primary ROS 2 Python nodes: `vision_node` and `control_node`, communicating via a custom `/sentry/target_error` topic.
 
-```mermaid
-graph LR
-    A[SimulatedCameraNode] -->|/image_raw (sensor_msgs/Image)| B(VisionNode)
-    B -->|/sentry/target_error (std_msgs/Float32)| C(ControlNode)
-    C -->|/cmd_vel (geometry_msgs/Twist)| D[RobotBaseController]
-    D --> E[SimulatedRobot]
+import ThreeDiagram from '@site/src/components/ThreeDiagram';
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#add8e6,stroke:#333,stroke-width:2px
-    style C fill:#ccffcc,stroke:#333,stroke-width:2px
-    style D fill:#ffcc99,stroke:#333,stroke-width:2px
-    style E fill:#ffff99,stroke:#333,stroke-width:2px
-```
+<ThreeDiagram id="P1.1" />
 
 **ROS 2 Graph Explanation:**
 *   **`SimulatedCameraNode`**: This node (typically part of your simulation environment, e.g., a Gazebo camera plugin) publishes raw image data on the `/image_raw` topic.

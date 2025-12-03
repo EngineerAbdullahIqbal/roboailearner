@@ -20,15 +20,9 @@ Navigation answers three questions: "Where am I?", "Where am I going?", and "How
 
 ### 🛠️ Architecture: The Nav2 Stack
 
-```mermaid
-graph TD
-    A[Behavior Tree (Navigator)] -->|ComputePathToPose| B[Global Planner]
-    A -->|FollowPath| C[Controller (Local Planner)]
-    B -->|Global Costmap| D[Static Map + Sensors]
-    C -->|Local Costmap| E[Real-time Sensors]
-    C -->|/cmd_vel| F[Base Controller]
-    G[AMCL / SLAM] -->|/tf (map->odom)| H[TF Tree]
-```
+import ThreeDiagram from '@site/src/components/ThreeDiagram';
+
+<ThreeDiagram id="9.1" />
 
 ### 💻 Implementation: Simple Nav2 Action Client
 Instead of using RViz buttons, we can send goals programmatically.

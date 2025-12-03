@@ -14,16 +14,9 @@ The success of this loop critically depends on low-latency perception, accurate 
 ### 🛠️ Architecture
 The system comprises three main ROS 2 nodes: a simulated camera publisher (often part of the simulation environment), an `object_detector` node, and an `arm_commander` node, interacting via topics and services.
 
-```mermaid
-graph LR
-    A[SimulatedCameraNode] -->|/camera/color/image_raw| B(object_detector)
-    B -- TF2: Broadcast object_frame --> TF[TF2 Transform Listener]
-    B -- /sorter_control/detect_object (request) --> C(arm_commander)
-    C -- TF2: Listen for object_frame --> TF
-    C -- MoveIt! Planning Service --> D(MoveGroupNode)
-    D -->|/joint_trajectory_controller/joint_trajectory| E[RobotJointControllers]
-    E --> F[SimulatedRoboticArm]
-```
+import ThreeDiagram from '@site/src/components/ThreeDiagram';
+
+<ThreeDiagram id="P2.1" />
 
 **ROS 2 Graph Explanation:**
 *   **`SimulatedCameraNode`**: This node (often provided by Gazebo/Isaac Sim) publishes raw camera images on `/camera/color/image_raw`.

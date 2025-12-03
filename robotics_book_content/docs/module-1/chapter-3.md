@@ -133,15 +133,9 @@ Gazebo is a powerful 3D simulator that accurately models real-world physics, all
 ### 🛠️ Architecture
 Gazebo interacts with ROS 2 through dedicated plugins (e.g., `gazebo_ros_pkgs`). These plugins bridge the simulated world's physics and sensor data to ROS 2 topics, and conversely, allow ROS 2 commands (like motor control) to influence the simulated robot.
 
-```mermaid
-graph LR
-    A[Robot_URDF] --> G(Gazebo_Physics_Engine)
-    G -->|Gazebo_ROS_Control_Plugin| B[ROS2_Controller_Manager]
-    G -->|Gazebo_ROS_Sensor_Plugins| C[Sensor_Nodes]
-    C -->|/camera/image_raw| D(VLA_Agent)
-    C -->|/scan| D
-    D -->|/cmd_vel| B
-```
+import ThreeDiagram from '@site/src/components/ThreeDiagram';
+
+<ThreeDiagram id="3.1" />
 
 ### 💻 Implementation
 Launching Gazebo typically involves a `ros2 launch` file that loads a specific world (e.g., an empty world or a world with obstacles) and spawns your robot model (defined by a URDF or SDF file).

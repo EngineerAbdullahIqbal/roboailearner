@@ -23,15 +23,9 @@ A motion planner tells the robot *where* to be. The controller ensures it *gets 
 
 ### 🛠️ Architecture: The ros2_control Stack
 
-```mermaid
-graph TD
-    A[MoveIt / Trajectory Controller] -->|/joint_trajectory| B(JointTrajectoryController)
-    B -->|Command (Position/Velocity/Effort)| C[Hardware Interface (SystemInterface)]
-    C -->|Driver API (CAN/EtherCAT)| D[Physical Motor Driver]
-    D -->|Encoder Feedback| C
-    C -->|Joint States| B
-    B -->|/joint_states| A
-```
+import ThreeDiagram from '@site/src/components/ThreeDiagram';
+
+<ThreeDiagram id="8.1" />
 
 ### 💻 Implementation: Custom PID Controller Node
 While `ros2_control` is the standard, writing a simple PID loop demystifies the magic.

@@ -42,12 +42,9 @@ The location where our code executes profoundly impacts its design and performan
 
 ### 🛠️ Architecture: Simple Robot Control Loop
 
-```mermaid
-graph LR
-    A[CameraNode] -->|/camera/image_raw| B(ProcessingNode)
-    B -->|/robot/processed_image| C[ControlNode]
-    C -->|/robot/cmd_vel| D[ActuatorNode]
-```
+import ThreeDiagram from '@site/src/components/ThreeDiagram';
+
+<ThreeDiagram id="1.1" />
 
 ### 💻 Implementation: Basic Sensor & Command Node
 We'll implement two simple ROS 2 nodes: one that publishes simulated sensor data (a simple counter) and another that subscribes to a command velocity topic and "actuates" it by printing. These examples demonstrate core ROS 2 concepts and QoS settings.

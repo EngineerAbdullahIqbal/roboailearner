@@ -17,15 +17,9 @@ The "Code moves atoms" principle is acutely relevant here. A slight error in a s
 ### 🛠️ Architecture
 A typical sensor fusion architecture in ROS 2 involves multiple sensor drivers publishing data to specific topics. A central fusion node subscribes to these topics, processes the data, and publishes an improved state estimate.
 
-```mermaid
-graph LR
-    A[Camera Driver] --> |/camera/image_raw| F(Sensor Fusion Node)
-    B[Lidar Driver] --> |/scan| F
-    C[IMU Driver] --> |/imu/data| F
-    D[Odometry Source] --> |/odom| F
-    F --> |/robot/state_estimate| G[Navigation Stack]
-    F --> |/robot/state_estimate| H[Control Node]
-```
+import ThreeDiagram from '@site/src/components/ThreeDiagram';
+
+<ThreeDiagram id="6.1" />
 
 ### 💻 Implementation
 Context: This is a conceptual outline of a ROS 2 node that subscribes to multiple sensor topics and publishes a fused state. The actual fusion logic (e.g., Kalman filter) would reside within the `process_sensor_data` method. This file would typically live in a package, for example, `src/my_robot_fusion/my_robot_fusion/fusion_node.py`.
@@ -188,27 +182,7 @@ For sensor fusion algorithms to produce a meaningful and safe state estimate, it
 ### 🛠️ Architecture
 The `tf2` architecture involves broadcasters that publish the relationships between frames and listeners that query these relationships. `message_filters` is integrated into a fusion node to ensure temporally aligned data before processing.
 
-```mermaid
-graph TD
-    subgraph Sensor Data
-        A[Camera Node] -- /camera/image_raw (Header.stamp, Frame: camera_link) --> F
-        B[Lidar Node] -- /scan (Header.stamp, Frame: lidar_link) --> F
-        C[IMU Node] -- /imu/data (Header.stamp, Frame: imu_link) --> F
-        D[Odometry Source] -- /odom (Header.stamp, Frame: odom/base_link) --> F
-    end
-
-    subgraph TF2 System
-        D[Static TF Broadcaster] -- Transforms (base_link -> camera_link) --> E(tf2_ros)
-        G[Dynamic TF Broadcaster (e.g., Odometry)] -- Transforms (odom -> base_link) --> E
-    end
-
-    subgraph Fusion Node
-        F(Fusion Node) -- subscribes to sensor topics --> H{message_filters.ApproximateTimeSynchronizer}
-        H -- synchronized data --> I{tf2_ros.TransformListener}
-        I -- transformed data --> J[Fusion Algorithm]
-        J -- fused state --> K[Publishes /robot/state_estimate]
-    end
-```
+<ThreeDiagram id="6.2" />
 
 ### 💻 Implementation
 Context: These code snippets illustrate how to implement time synchronization and coordinate transformations in ROS 2. `static_transform_publisher.py` would typically be launched alongside the robot's bringup, defining fixed sensor locations. `fusion_node_with_tf.py` extends the previous fusion node to include `tf2` and `message_filters`. These files would reside in a ROS 2 package, e.g., `src/my_robot_fusion/my_robot_fusion/`.

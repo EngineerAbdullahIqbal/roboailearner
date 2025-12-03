@@ -1,0 +1,332 @@
+{
+  "scenes": {
+    "1.1": {
+      "title": "ROS Node Graph",
+      "type": "flow",
+      "description": "Architecture of a simple robot control loop showing data flow from Camera to Actuator.",
+      "camera": { "position": [0, 0, 15], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "n1", "label": "CameraNode", "pos": [-6, 2, 0], "type": "box", "color": "#4a90e2" },
+          { "id": "n2", "label": "ProcessingNode", "pos": [-2, 2, 0], "type": "box", "color": "#4a90e2" },
+          { "id": "n3", "label": "ControlNode", "pos": [2, 2, 0], "type": "box", "color": "#4a90e2" },
+          { "id": "n4", "label": "ActuatorNode", "pos": [6, 2, 0], "type": "box", "color": "#4a90e2" }
+        ],
+        "edges": [
+          { "from": "n1", "to": "n2", "label": "/camera/image_raw", "color": "#999" },
+          { "from": "n2", "to": "n3", "label": "/robot/processed_image", "color": "#999" },
+          { "from": "n3", "to": "n4", "label": "/robot/cmd_vel", "color": "#999" }
+        ]
+      }
+    },
+    "2.1": {
+      "title": "Topic Communication",
+      "type": "flow",
+      "description": "Visualization of a Publisher and Subscriber communicating via a Topic.",
+      "camera": { "position": [0, 0, 10], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "pub", "label": "CameraNode", "pos": [-3, 0, 0], "type": "box", "color": "#e24a4a" },
+          { "id": "sub", "label": "ObjectDetection", "pos": [3, 0, 0], "type": "box", "color": "#4ae24a" }
+        ],
+        "edges": [
+          { "from": "pub", "to": "sub", "label": "/camera/image_raw", "color": "#e2e2e2", "animated": true }
+        ]
+      }
+    },
+    "2.2": {
+      "title": "Service Communication",
+      "type": "flow",
+      "description": "Request/Response pattern between Client and Server nodes.",
+      "camera": { "position": [0, 0, 10], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "client", "label": "NavigationNode", "pos": [-3, 0, 0], "type": "box", "color": "#e2aa4a" },
+          { "id": "server", "label": "BatteryMonitor", "pos": [3, 0, 0], "type": "box", "color": "#4a4ae2" }
+        ],
+        "edges": [
+          { "from": "client", "to": "server", "label": "Request: GetStatus", "color": "#e2e2e2" },
+          { "from": "server", "to": "client", "label": "Response: 85%", "color": "#e2e2e2" }
+        ]
+      }
+    },
+    "3.1": {
+      "title": "Gazebo Architecture",
+      "type": "flow",
+      "description": "Data flow between Robot URDF, Gazebo Physics, and ROS Nodes.",
+      "camera": { "position": [0, 5, 15], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "urdf", "label": "Robot URDF", "pos": [-6, 0, 0], "type": "cylinder", "color": "#888" },
+          { "id": "gazebo", "label": "Gazebo Physics", "pos": [0, 0, 0], "type": "sphere", "color": "#e2884a" },
+          { "id": "ros", "label": "ROS Controller", "pos": [6, 0, 0], "type": "box", "color": "#4a90e2" },
+          { "id": "sensor", "label": "Sensor Nodes", "pos": [3, -3, 0], "type": "box", "color": "#4ae24a" },
+          { "id": "agent", "label": "VLA Agent", "pos": [6, -3, 0], "type": "box", "color": "#e24a4a" }
+        ],
+        "edges": [
+          { "from": "urdf", "to": "gazebo", "label": "Load Model" },
+          { "from": "gazebo", "to": "ros", "label": "Plugin Interface" },
+          { "from": "gazebo", "to": "sensor", "label": "Sensor Data" },
+          { "from": "sensor", "to": "agent", "label": "/camera/image_raw" },
+          { "from": "agent", "to": "ros", "label": "/cmd_vel" }
+        ]
+      }
+    },
+    "4.1": {
+      "title": "Image Processing Pipeline",
+      "type": "flow",
+      "description": "Pipeline from Camera Driver to Processed Image.",
+      "camera": { "position": [0, 0, 12], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "driver", "label": "Camera Driver", "pos": [-4, 0, 0], "type": "box", "color": "#888" },
+          { "id": "proc", "label": "Image Processor", "pos": [0, 0, 0], "type": "box", "color": "#4ae24a" },
+          { "id": "app", "label": "VLA/Display", "pos": [4, 0, 0], "type": "box", "color": "#4a90e2" }
+        ],
+        "edges": [
+          { "from": "driver", "to": "proc", "label": "/camera/image_raw" },
+          { "from": "proc", "to": "app", "label": "/camera/image_processed" }
+        ]
+      }
+    },
+    "5.1": {
+      "title": "Point Cloud Pipeline",
+      "type": "flow",
+      "description": "Conversion of Depth Image to PointCloud2 data.",
+      "camera": { "position": [0, 0, 12], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "cam", "label": "CameraNode", "pos": [-4, 0, 0], "type": "box", "color": "#888" },
+          { "id": "conv", "label": "DepthToPointCloud", "pos": [0, 0, 0], "type": "box", "color": "#4ae24a" },
+          { "id": "rviz", "label": "RViz2", "pos": [4, 0, 0], "type": "box", "color": "#e2884a" }
+        ],
+        "edges": [
+          { "from": "cam", "to": "conv", "label": "/depth/image_raw" },
+          { "from": "cam", "to": "conv", "label": "/camera_info" },
+          { "from": "conv", "to": "rviz", "label": "/depth/points" }
+        ]
+      }
+    },
+    "6.1": {
+      "title": "Sensor Fusion Architecture",
+      "type": "flow",
+      "description": "Fusing multiple sensor inputs into a single state estimate.",
+      "camera": { "position": [0, 0, 15], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "cam", "label": "Camera", "pos": [-5, 3, 0], "type": "box", "color": "#888" },
+          { "id": "lidar", "label": "Lidar", "pos": [-5, 1, 0], "type": "box", "color": "#888" },
+          { "id": "imu", "label": "IMU", "pos": [-5, -1, 0], "type": "box", "color": "#888" },
+          { "id": "odom", "label": "Odometry", "pos": [-5, -3, 0], "type": "box", "color": "#888" },
+          { "id": "fusion", "label": "Sensor Fusion", "pos": [0, 0, 0], "type": "sphere", "color": "#e24a4a" },
+          { "id": "nav", "label": "Navigation", "pos": [5, 1, 0], "type": "box", "color": "#4a90e2" },
+          { "id": "ctrl", "label": "Control", "pos": [5, -1, 0], "type": "box", "color": "#4a90e2" }
+        ],
+        "edges": [
+          { "from": "cam", "to": "fusion", "label": "/image_raw" },
+          { "from": "lidar", "to": "fusion", "label": "/scan" },
+          { "from": "imu", "to": "fusion", "label": "/imu/data" },
+          { "from": "odom", "to": "fusion", "label": "/odom" },
+          { "from": "fusion", "to": "nav", "label": "/state_estimate" },
+          { "from": "fusion", "to": "ctrl", "label": "/state_estimate" }
+        ]
+      }
+    },
+    "6.2": {
+      "title": "TF2 System Architecture",
+      "type": "flow",
+      "description": "Flow of Transform data from sensors to the TF2 buffer.",
+      "camera": { "position": [0, 0, 15], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "cam", "label": "Camera", "pos": [-5, 3, 0], "type": "box", "color": "#888" },
+          { "id": "lidar", "label": "Lidar", "pos": [-5, 1, 0], "type": "box", "color": "#888" },
+          { "id": "imu", "label": "IMU", "pos": [-5, -1, 0], "type": "box", "color": "#888" },
+          { "id": "odom", "label": "Odometry", "pos": [-5, -3, 0], "type": "box", "color": "#888" },
+          { "id": "static", "label": "Static TF", "pos": [-5, -5, 0], "type": "box", "color": "#aaa" },
+          { "id": "sync", "label": "Time Sync", "pos": [-1, 0, 0], "type": "box", "color": "#4ae24a" },
+          { "id": "tf2", "label": "TF2 Buffer", "pos": [2, -2, 0], "type": "cylinder", "color": "#e2aa4a" },
+          { "id": "fusion", "label": "Fusion Algo", "pos": [5, 0, 0], "type": "box", "color": "#4a90e2" }
+        ],
+        "edges": [
+          { "from": "cam", "to": "sync", "label": "Data" },
+          { "from": "lidar", "to": "sync", "label": "Data" },
+          { "from": "imu", "to": "sync", "label": "Data" },
+          { "from": "odom", "to": "sync", "label": "Data" },
+          { "from": "static", "to": "tf2", "label": "Transforms" },
+          { "from": "odom", "to": "tf2", "label": "Transforms" },
+          { "from": "sync", "to": "tf2", "label": "TransformListener" },
+          { "from": "tf2", "to": "fusion", "label": "Transformed Data" }
+        ]
+      }
+    },
+    "7.1": {
+      "title": "MoveIt 2 Architecture",
+      "type": "flow",
+      "description": "Components of the MoveIt 2 planning pipeline.",
+      "camera": { "position": [0, 5, 15], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "user", "label": "User Goal", "pos": [-5, 4, 0], "type": "box", "color": "#e24a4a" },
+          { "id": "planner", "label": "MoveIt 2 Planner", "pos": [0, 0, 0], "type": "sphere", "color": "#4a90e2" },
+          { "id": "ik", "label": "IK Solver", "pos": [0, 4, 0], "type": "box", "color": "#888" },
+          { "id": "scene", "label": "Planning Scene", "pos": [0, -4, 0], "type": "box", "color": "#888" },
+          { "id": "exec", "label": "Trajectory Exec", "pos": [4, 0, 0], "type": "box", "color": "#4ae24a" },
+          { "id": "ctrl", "label": "Robot Controller", "pos": [7, 0, 0], "type": "box", "color": "#888" }
+        ],
+        "edges": [
+          { "from": "user", "to": "planner", "label": "MoveGroup Interface" },
+          { "from": "planner", "to": "ik", "label": "Inverse Kinematics" },
+          { "from": "planner", "to": "scene", "label": "Collision Check" },
+          { "from": "planner", "to": "exec", "label": "Trajectory" },
+          { "from": "exec", "to": "ctrl", "label": "/joint_trajectory" }
+        ]
+      }
+    },
+    "8.1": {
+      "title": "ros2_control Stack",
+      "type": "flow",
+      "description": "Control loop from Trajectory Controller to Hardware Interface.",
+      "camera": { "position": [0, 0, 12], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "moveit", "label": "MoveIt", "pos": [-5, 3, 0], "type": "box", "color": "#888" },
+          { "id": "jtc", "label": "JointTrajectoryController", "pos": [0, 3, 0], "type": "box", "color": "#4a90e2" },
+          { "id": "hw", "label": "Hardware Interface", "pos": [0, 0, 0], "type": "box", "color": "#e2aa4a" },
+          { "id": "driver", "label": "Motor Driver", "pos": [0, -3, 0], "type": "box", "color": "#4ae24a" }
+        ],
+        "edges": [
+          { "from": "moveit", "to": "jtc", "label": "/joint_trajectory" },
+          { "from": "jtc", "to": "hw", "label": "Command" },
+          { "from": "hw", "to": "driver", "label": "Driver API" },
+          { "from": "driver", "to": "hw", "label": "Feedback" },
+          { "from": "hw", "to": "jtc", "label": "Joint States" },
+          { "from": "jtc", "to": "moveit", "label": "/joint_states" }
+        ]
+      }
+    },
+    "9.1": {
+      "title": "Nav2 Stack",
+      "type": "flow",
+      "description": "High-level architecture of the Navigation 2 stack.",
+      "camera": { "position": [0, 0, 18], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "bt", "label": "Behavior Tree", "pos": [-5, 0, 0], "type": "box", "color": "#e24a4a" },
+          { "id": "global", "label": "Global Planner", "pos": [0, 2, 0], "type": "box", "color": "#4a90e2" },
+          { "id": "local", "label": "Controller", "pos": [0, -2, 0], "type": "box", "color": "#4a90e2" },
+          { "id": "gcost", "label": "Global Costmap", "pos": [4, 2, 0], "type": "box", "color": "#888" },
+          { "id": "lcost", "label": "Local Costmap", "pos": [4, -2, 0], "type": "box", "color": "#888" },
+          { "id": "base", "label": "Base Controller", "pos": [0, -5, 0], "type": "box", "color": "#4ae24a" },
+          { "id": "amcl", "label": "AMCL/SLAM", "pos": [-5, -5, 0], "type": "box", "color": "#e2aa4a" },
+          { "id": "tf", "label": "TF Tree", "pos": [-8, -5, 0], "type": "cylinder", "color": "#aaa" }
+        ],
+        "edges": [
+          { "from": "bt", "to": "global", "label": "ComputePath" },
+          { "from": "bt", "to": "local", "label": "FollowPath" },
+          { "from": "global", "to": "gcost", "label": "Query" },
+          { "from": "local", "to": "lcost", "label": "Query" },
+          { "from": "local", "to": "base", "label": "/cmd_vel" },
+          { "from": "amcl", "to": "tf", "label": "/tf (map->odom)" }
+        ]
+      }
+    },
+    "P1.1": {
+      "title": "Sentient Sentry Architecture",
+      "type": "flow",
+      "description": "Node graph for the Face Tracking project.",
+      "camera": { "position": [0, 0, 12], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "cam", "label": "SimulatedCamera", "pos": [-5, 0, 0], "type": "box", "color": "#f9f" },
+          { "id": "vis", "label": "VisionNode", "pos": [-2, 0, 0], "type": "box", "color": "#add8e6" },
+          { "id": "ctrl", "label": "ControlNode", "pos": [1, 0, 0], "type": "box", "color": "#ccffcc" },
+          { "id": "base", "label": "RobotBase", "pos": [4, 0, 0], "type": "box", "color": "#ffcc99" },
+          { "id": "sim", "label": "SimRobot", "pos": [7, 0, 0], "type": "box", "color": "#ffff99" }
+        ],
+        "edges": [
+          { "from": "cam", "to": "vis", "label": "/image_raw" },
+          { "from": "vis", "to": "ctrl", "label": "/target_error" },
+          { "from": "ctrl", "to": "base", "label": "/cmd_vel" },
+          { "from": "base", "to": "sim", "label": "Physics" }
+        ]
+      }
+    },
+    "P2.1": {
+      "title": "Visual Sorter Architecture",
+      "type": "flow",
+      "description": "Architecture for the Pick and Place arm project.",
+      "camera": { "position": [0, 0, 15], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "cam", "label": "Camera", "pos": [-6, 2, 0], "type": "box", "color": "#888" },
+          { "id": "det", "label": "ObjectDetector", "pos": [-2, 2, 0], "type": "box", "color": "#4ae24a" },
+          { "id": "cmd", "label": "ArmCommander", "pos": [2, 2, 0], "type": "box", "color": "#e24a4a" },
+          { "id": "tf", "label": "TF2 Listener", "pos": [0, 0, 0], "type": "cylinder", "color": "#aaa" },
+          { "id": "move", "label": "MoveGroup", "pos": [2, -2, 0], "type": "box", "color": "#4a90e2" },
+          { "id": "ctrl", "label": "JointControl", "pos": [6, -2, 0], "type": "box", "color": "#e2aa4a" },
+          { "id": "arm", "label": "SimArm", "pos": [9, -2, 0], "type": "box", "color": "#888" }
+        ],
+        "edges": [
+          { "from": "cam", "to": "det", "label": "/image_raw" },
+          { "from": "det", "to": "tf", "label": "Broadcast TF" },
+          { "from": "det", "to": "cmd", "label": "Service Call" },
+          { "from": "cmd", "to": "tf", "label": "Listen TF" },
+          { "from": "cmd", "to": "move", "label": "Planning" },
+          { "from": "move", "to": "ctrl", "label": "/joint_trajectory" },
+          { "from": "ctrl", "to": "arm", "label": "Physics" }
+        ]
+      }
+    },
+    "P3.1": {
+      "title": "Office Runner Architecture",
+      "type": "flow",
+      "description": "Nav2 integration for the delivery robot project.",
+      "camera": { "position": [0, 0, 18], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "mgr", "label": "DeliveryManager", "pos": [-6, 4, 0], "type": "box", "color": "#f9f" },
+          { "id": "nav", "label": "Nav2 Stack", "pos": [0, 0, 0], "type": "sphere", "color": "#e2e2e2" },
+          { "id": "bt", "label": "BT Navigator", "pos": [-2, 1, 0], "type": "box", "color": "#ccffcc" },
+          { "id": "plan", "label": "Planner", "pos": [2, 2, 0], "type": "box", "color": "#ffcc99" },
+          { "id": "ctrl", "label": "Controller", "pos": [2, -2, 0], "type": "box", "color": "#ffff99" },
+          { "id": "base", "label": "Base", "pos": [6, -2, 0], "type": "box", "color": "#dddddd" },
+          { "id": "amcl", "label": "AMCL", "pos": [2, -5, 0], "type": "box", "color": "#ccccff" },
+          { "id": "map", "label": "MapServer", "pos": [-2, -5, 0], "type": "box", "color": "#f0f8ff" },
+          { "id": "lidar", "label": "LiDAR", "pos": [6, -5, 0], "type": "box", "color": "#f0f0f0" }
+        ],
+        "edges": [
+          { "from": "mgr", "to": "nav", "label": "Action Goal" },
+          { "from": "nav", "to": "bt", "label": "Goal" },
+          { "from": "bt", "to": "plan", "label": "Plan" },
+          { "from": "bt", "to": "ctrl", "label": "Control" },
+          { "from": "ctrl", "to": "base", "label": "/cmd_vel" },
+          { "from": "base", "to": "amcl", "label": "Odom" },
+          { "from": "map", "to": "amcl", "label": "/map" },
+          { "from": "lidar", "to": "amcl", "label": "/scan" }
+        ]
+      }
+    },
+    "blog.1": {
+      "title": "Blog Post: Sim-to-Real Gap",
+      "type": "flow",
+      "description": "Data flow illustrating the Sim-to-Real gap with RealSense, ImageProcessor, VLA_Agent, and Hardware.",
+      "camera": { "position": [0, 5, 15], "target": [0, 0, 0], "fov": 45 },
+      "config": {
+        "nodes": [
+          { "id": "driver", "label": "RealSenseDriver", "pos": [-6, 2, 0], "type": "box", "color": "#888" },
+          { "id": "proc", "label": "ImageProcessor", "pos": [-2, 2, 0], "type": "box", "color": "#4ae24a" },
+          { "id": "agent", "label": "VLA_Agent", "pos": [2, 2, 0], "type": "sphere", "color": "#e24a4a" },
+          { "id": "ctrl", "label": "RobotController", "pos": [6, 2, 0], "type": "box", "color": "#4a90e2" },
+          { "id": "hw", "label": "UnitreeHardware", "pos": [6, -2, 0], "type": "box", "color": "#e2aa4a" }
+        ],
+        "edges": [
+          { "from": "driver", "to": "proc", "label": "/camera/color/image_raw", "color": "#999" },
+          { "from": "proc", "to": "agent", "label": "/processed_image", "color": "#999" },
+          { "from": "agent", "to": "ctrl", "label": "/cmd_vel", "color": "#999" },
+          { "from": "ctrl", "to": "hw", "label": "Actuation", "color": "#999" }
+        ]
+      }
+    }
+  }
+}

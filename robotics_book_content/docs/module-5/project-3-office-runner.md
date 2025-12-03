@@ -21,41 +21,9 @@ Autonomous navigation is a cornerstone of robotics, enabling robots to move from
 
 The "Office Runner" system involves a Python node (`delivery_manager.py`) sending navigation goals to the Nav2 stack, which then controls the robot. The localization and navigation components work in concert to achieve autonomous movement.
 
-```mermaid
-graph LR
-    subgraph Office Runner Components
-        A[delivery_manager.py] -- send_goal --> B(NavigateToPose.action)
-    end
+import ThreeDiagram from '@site/src/components/ThreeDiagram';
 
-    subgraph Nav2 Stack
-        B -- goal --> C{bt_navigator}
-        C -- plans --> D[planner_server]
-        C -- controls --> E[controller_server]
-        E -- /cmd_vel --> F[Robot Base Controller]
-        F -- odometry --> G(amcl)
-        G -- /tf --> H[tf_static (map->odom)]
-        I[map_server] -- /map --> G
-        J[LiDAR Sensor] -- /scan --> G
-    end
-
-    H -- /tf --> G
-    G -- /tf --> E
-    K[robot_state_publisher] -- /tf --> L[tf_static (odom->base_link)]
-    L -- /tf --> E
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#add8e6,stroke:#333,stroke-width:2px
-    style C fill:#ccffcc,stroke:#333,stroke-width:2px
-    style D fill:#ffcc99,stroke:#333,stroke-width:2px
-    style E fill:#ffff99,stroke:#333,stroke-width:2px
-    style F fill:#dddddd,stroke:#333,stroke-width:2px
-    style G fill:#ccccff,stroke:#333,stroke-width:2px
-    style H fill:#e0e0e0,stroke:#333,stroke-width:2px
-    style I fill:#f0f8ff,stroke:#333,stroke-width:2px
-    style J fill:#f0f0f0,stroke:#333,stroke-width:2px
-    style K fill:#e0e0e0,stroke:#333,stroke-width:2px
-    style L fill:#e0e0e0,stroke:#333,stroke-width:2px
-```
+<ThreeDiagram id="P3.1" />
 
 **TF (Transform) Tree**:
 *   `map` (world frame, provided by `map_server`)
